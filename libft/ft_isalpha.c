@@ -6,7 +6,7 @@
 /*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:04:01 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/01/11 17:36:32 by zabdulza         ###   ########.fr       */
+/*   Updated: 2023/01/12 11:01:38 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int ft_isalpha(int z)
 /*#include <stdio.h>
 int	main(void)
 {
-	int	digit;
-	int	digit2;
+	int	z;
+	int	z2;
 	digit = ft_isalpha(97);
 	digit2 = ft_isalpha(96);
-	printf("%d %d", digit, digit2);
+	printf("%d %d", z, z2);
 }*/

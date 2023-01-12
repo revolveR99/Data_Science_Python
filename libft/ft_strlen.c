@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 16:05:47 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/01/12 10:55:43 by zabdulza         ###   ########.fr       */
+/*   Created: 2023/01/12 14:52:35 by zabdulza          #+#    #+#             */
+/*   Updated: 2023/01/12 15:34:27 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+ size_t strlen(const char *s)
+ {
+	size_t i;
 
-int ft_tolower(int z)
+	i = 0;
 
+	while(s[i])
+	i++;
+	return(i);
+ }
+
+ /*#include <stdio.h>
+int	main(void)
 {
-	if(z >= 'A' && z<= 'Z')
-	z+= 32;
-	return(z);
-}
+	char	a[] = "hece";
+	int	b;
+	b = ft_strlen(a);
+	printf("%d", b);
+}*/

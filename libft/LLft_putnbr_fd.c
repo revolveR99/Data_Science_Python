@@ -1,21 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   LLft_putnbr_fd.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 16:05:47 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/01/12 10:55:43 by zabdulza         ###   ########.fr       */
+/*   Created: 2023/01/12 12:53:25 by zabdulza          #+#    #+#             */
+/*   Updated: 2023/01/12 13:55:26 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_tolower(int z)
+// n sayısını fd dosyasına yazar vesselam...
 
+void	ft_putnbr_fd(int nb, int fd)
 {
-	if(z >= 'A' && z<= 'Z')
-	z+= 32;
-	return(z);
+	if (nb == -2147483648)
+	{
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		nb = 147483648;
+		ft_putnbr_fd(nb, fd);
+	}
+	else if (nb < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nb = nb * -1;
+		ft_putnbr_fd(nb, fd);
+	}
+	else if (nb > 9)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+	}
+	else
+		ft_putchar_fd(nb + '0', fd);
 }
+
+

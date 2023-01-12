@@ -6,7 +6,7 @@
 /*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:32:34 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/01/11 17:44:39 by zabdulza         ###   ########.fr       */
+/*   Updated: 2023/01/12 11:01:40 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int ft_isdigit (int z)
 
 int main()
 {
-	int c1;
-	int c2;
+	int z1;
+	int z2;
 
-	c1 = ft_isdigit('A');
-	c2= ft_isdigit('5');
+	z1 = ft_isdigit('A');
+	z2= ft_isdigit('5');
 
-	printf("%d %d", c1 , c2);
+	printf("%d %d", z1 , z2);
 }

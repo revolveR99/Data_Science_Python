@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 16:05:47 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/01/12 10:55:43 by zabdulza         ###   ########.fr       */
+/*   Created: 2023/01/12 11:02:37 by zabdulza          #+#    #+#             */
+/*   Updated: 2023/01/12 11:22:28 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "libft.h"
 
-int ft_tolower(int z)
-
+int ft_isascii(int z)
 {
-	if(z >= 'A' && z<= 'Z')
-	z+= 32;
-	return(z);
+if(z>= 0 && z<= 127)
+	return(1);
+return(0);
 }
+
+/*
+#include <stdio.h>
+int main()
+{
+	int z;
+	z = ft_isascii(6766767676);
+	int z1;
+	z1 = ft_isascii('£');
+	int z2 ;
+	z2= ft_isascii('t');
+
+	printf("%d %d %d\n", z , z1, z2);
+}
+*/
