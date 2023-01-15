@@ -1,0 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   strrchr.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/15 12:35:24 by zabdulza          #+#    #+#             */
+/*   Updated: 2023/01/15 12:43:24 by zabdulza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+// Girilen stringde belirtilen karakteri
+// sondan başlayıp bulduktan sonraki kısımda
+// o adresten itibaren geri kalanı döndürmeye
+// yarıyor örnek vermek gerekir ise;
+// "www.toros.bilisim.com" "." olsun çıktım ise
+// ".com" olarak olacaktır ayrıyetten eğer
+// aranan karakter bulunmaz ise stringin son karakteri
+// olan null u basar
+
+char	*ft_strrchr(const char *str, int c)
+{
+	int	index;
+
+	index = ft_strlen(str);
+	if (c == 0)
+		return ((char *)&str[index]);
+	while (index >= 0)
+	{
+		if (str[index] == c)
+			return ((char *)&str[index]);
+		index--;
+	}
+	return (0);
+}
+
+/*#include <stdio.h>
+int	main(void)
+{
+	char	*str = "www.toros.bilisim. com";
+	char	c = '.';
+	printf("%s | %c -> %s", str, c, ft_strrchr(str, c));
+}*/
