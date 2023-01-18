@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:35:46 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/01/16 16:39:16 by zabdulza         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:17:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 // int bir değere dönüştürme işlemi yapar
 // örnek vermek gerekirse eğer
 // "     -213dsfıjsdf" olan stringimden int -213
-// sonucunu alırım vesselam...
+// sonucunu alırım vesselam..
 
 int	ft_atoi(const char *str)
 {
