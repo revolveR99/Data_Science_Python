@@ -1,56 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   LLft_putstr_fd.c                                   :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 12:39:29 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/01/12 13:33:45 by zabdulza         ###   ########.fr       */
+/*   Created: 2023/01/11 15:23:28 by zabdulza          #+#    #+#             */
+/*   Updated: 2023/01/21 14:48:09 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-void ft_putstr_fd(char *s, int fd)
+
+int	ft_toupper(int z)
 {
-	int i;
-
-	i = 0;
-
-	while(s[i])
-	i++;
-
-	write(fd,s, i);
-		
-	
-}
-
-//learn
-
-void ft_putstr(char *str)
-{
-	int i;
-
-	i = 0;
-
-	while(str[i])
-	i++;
-	
-	write(fd,s, i);
-		
-
-}
-
-#include <unistd.h>
-
-void	ft_putstr_fd(char const *s, int fd)
-{
-	int i;
-
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+	if (z >= 'a' && z <= 'z')
+		z -= 32;
+	return (z);
 }
