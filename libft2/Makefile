@@ -1,10 +1,11 @@
 NAME = libft.a
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRC = $(shell find . ! -name "ft_lst*.c" -name "ft_*.c")
 BONUS = $(shell find . -name "ft_lst*.c")
 OBJ = $(SRC:.c=.o)
 BONUS_OBJ = $(BONUS:.c=.o)
+
 
 
 all: $(NAME)
@@ -26,5 +27,6 @@ fclean: clean
 	@echo "\n$(shell tput setaf 11) executables removed 👋$(shell tput sgr0)\n"
 
 re: fclean all
+
 
 .PHONY: all bonus clean fclean re
