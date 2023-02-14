@@ -14,17 +14,21 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) *.o
-	@echo "\n$(shell tput setaf 10) $@ built ✅ $(shell tput sgr0)\n"
+	
 bonus: $(OBJ) $(BONUS_OBJ)
 	@ar rc $(NAME) *.o
-	@echo "\n$(shell tput setaf 10) $@ built ✅$(shell tput sgr0)\n"
+	
 clean:
 	@/bin/rm -f  *.o
-	@echo "\n$(shell tput setaf 11) object files removed 👋$(shell tput sgr0)\n"
+	
 fclean: clean
 	@/bin/rm -f $(NAME)
-	@echo "\n$(shell tput setaf 11) executables removed 👋$(shell tput sgr0)\n"
+	
 
 re: fclean all
+
+so: 
+	cc -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
 
 .PHONY: all bonus clean fclean re

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zero <zero@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:35:46 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/01/21 14:34:42 by zabdulza         ###   ########.fr       */
+/*   Updated: 2023/02/02 13:51:53 by zero             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 int	ft_atoi(const char *str)
 {
-	int	index;
-	int	carp;
-	int	result;
+	int	i;
+	int	signchange;
+	int	outcome;
 
-	index = 0;
-	carp = 1;
-	result = 0;
-	while ((str[index] >= '\t' && str[index] <= '\r') || str[index] == ' ')
-		index++;
-	if (str[index] == '+' || str[index] == '-')
+	signchange = 1;
+	i = 0;
+	outcome = 0;
+	while (str[i] == '\t' || str[i] == '\v' || str[i] == '\f'
+		|| str[i] == '\n' || str[i] == ' ' || str[i] == '\r')
 	{
-		if (str[index] == '-')
-		{
-			carp *= -1;
-		}
-		index++;
+		i++;
 	}
-	while (str[index] >= '0' && str[index] <= '9' && str[index] != '\0')
+	if (str[i] == '+' || str[i] == '-')
 	{
-		result = ((str[index] - '0') + (result * 10));
-		index++;
+		if (str[i] == '-')
+			signchange = signchange * -1;
+		i++;
 	}
-	return (result * carp);
+	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
+	{
+		outcome = ((str[i] - '0') + (outcome * 10));
+		i++;
+	}
+	return (outcome * signchange);
 }

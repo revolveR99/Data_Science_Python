@@ -3,57 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zero <zero@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:39:03 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/01/21 14:35:03 by zabdulza         ###   ########.fr       */
+/*   Updated: 2023/02/05 14:33:19 by zero             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	ft_numsize(int n)
+static unsigned int	ft_sizeofword(int n)
 {
-	unsigned int	len;
+	unsigned int	size;
 
+	size = 0;
+	if (n < 0)
+		size += 1;
 	if (n == 0)
 		return (1);
-	len = 0;
-	if (n < 0)
-		len += 1;
 	while (n != 0)
 	{
 		n /= 10;
-		len++;
+		size++;
 	}
-	return (len);
+	return (size);
 }
 
 char	*ft_itoa(int n)
 {
-	char			*str;
-	unsigned int	num;
-	unsigned int	len;
+	char			*newstr;
+	unsigned int	length;
+	unsigned int	numbre;
 
-	len = ft_numsize(n);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
+	length = ft_sizeofword(n);
+	newstr = (char *)malloc(sizeof(char) * (length + 1));
+	if (newstr == NULL)
 		return (NULL);
 	if (n < 0)
 	{
-		str[0] = '-';
-		num = -n;
+		newstr[0] = '-';
+		numbre = -n;
 	}
 	else
-		num = n;
-	if (num == 0)
-		str[0] = '0';
-	str[len] = '\0';
-	while (num > 0)
+		numbre = n;
+	if (numbre == 0)
+		newstr[0] = '0';
+	newstr[length] = '\0';
+	while (numbre > 0)
 	{
-		str[len - 1] = (num % 10) + '0';
-		num = num / 10;
-		len--;
+		newstr[length - 1] = (numbre % 10) + '0';
+		numbre = numbre / 10;
+		length--;
 	}
-	return (str);
+	return (newstr);
 }

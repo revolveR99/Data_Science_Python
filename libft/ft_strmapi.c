@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zero <zero@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 12:35:24 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/02/01 19:07:08 by zero             ###   ########.fr       */
+/*   Created: 2023/01/25 11:04:59 by zabdulza          #+#    #+#             */
+/*   Updated: 2023/01/25 11:06:42 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	char	*new_one;
+	size_t	i;
 
+	if (!s)
+		return (NULL);
+	new_one = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (!new_one)
+		return (NULL);
 	i = 0;
 	while (s[i])
-		i++;
-	while (i >= 0)
 	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
-		i--;
+		new_one[i] = f(i, s[i]);
+		i++;
 	}
-	return (NULL);
+	new_one[i] = '\0';
+	return (new_one);
 }
