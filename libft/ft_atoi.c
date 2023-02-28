@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zero <zero@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:35:46 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/02/02 13:51:53 by zero             ###   ########.fr       */
+/*   Updated: 2023/02/23 12:29:39 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	signchange;
-	int	outcome;
-
-	signchange = 1;
-	i = 0;
-	outcome = 0;
+	int (i) = 0;
+	int (signchange) = 1;
+	int (outcome) = 0;
 	while (str[i] == '\t' || str[i] == '\v' || str[i] == '\f'
 		|| str[i] == '\n' || str[i] == ' ' || str[i] == '\r')
 	{

@@ -14,21 +14,14 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) *.o
-	
 bonus: $(OBJ) $(BONUS_OBJ)
 	@ar rc $(NAME) *.o
-	
 clean:
 	@/bin/rm -f  *.o
-	
 fclean: clean
 	@/bin/rm -f $(NAME)
-	
-
 re: fclean all
-
-so: 
-	cc -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJ)
-
+so:	
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJ) $(BONUS_OBJ)
 .PHONY: all bonus clean fclean re

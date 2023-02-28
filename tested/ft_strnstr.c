@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr (1).c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:35:31 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/01/21 14:35:44 by zabdulza         ###   ########.fr       */
+/*   Updated: 2023/02/28 09:21:41 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char *z;
-	size_t i = 0;
-	
-	if(!*little)
-		return((char *)big));
-	while(*big && big[i] != little && len--)
+	size_t	h;
+	size_t	n;
+
+	if (*little == '\0')
+		return ((char *)big);
+	h = 0;
+	while (big[h])
 	{
-		i++;
-		
+		n = 0;
+		while (little[n] && big[h + n] == little[n] && h + n < len)
+			n++;
+		if (little[n] == '\0')
+			return ((char *)&big[h]);
+		h++;
 	}
-	return()
+	return (NULL);
+}
+
+
+int	main(void)
+{
+	char	*h = "hece is beatiful";
+	char	*n = "is";
+	printf("%s", ft_strnstr(h, n, 9));
 }

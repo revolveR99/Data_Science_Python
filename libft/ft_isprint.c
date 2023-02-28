@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zero <zero@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:22:59 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/01/23 14:35:01 by zero             ###   ########.fr       */
+/*   Updated: 2023/02/18 17:42:07 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int z)
+int	ft_isprint(int zam)
 {
-	if (z >= 32 && z <= 126)
+	if (zam >= 32 && zam <= 126)
 		return (1);
 	return (0);
 }

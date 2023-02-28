@@ -18,11 +18,11 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	size_t	length;
 
 	if (!s1 || !s2)
-		return (0);
+		return (NULL);
 	length = ft_strlen(s1) + ft_strlen(s2);
 	newstr = (char *)malloc(sizeof(char) * (length + 1));
 	if (!newstr)
-		return (0);
+		return (NULL);
 	ft_strlcpy(newstr, s1, length + 1);
 	ft_strlcat(newstr, s2, length + 1);
 	return (newstr);
