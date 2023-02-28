@@ -90,7 +90,7 @@ while(!*str)
 while (!*str) is not the same as the others. It will loop as long as the value pointed to by str is 0 (i.e. false), which is not necessarily the same as the end of the string (represented by the null character). 
 //
 
-Yes, *s_1 and s_1[0] will give the same output. They both refer to the first element of the array s_1.
+Yes, *s_1 and s_1[0] will give the same output. They both refer to the first element of the array s_1. during const char 
 
 
 
