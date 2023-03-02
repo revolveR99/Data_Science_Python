@@ -3,57 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zero <zero@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:39:03 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/02/05 14:33:19 by zero             ###   ########.fr       */
+/*   Updated: 2023/03/02 14:58:33 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 static unsigned int	ft_sizeofword(int n)
 {
 	unsigned int	size;
 
 	size = 0;
-	if (n < 0)
-		size += 1;
-	if (n == 0)
-		return (1);
+	if (n <= 0)
+		size ++;
 	while (n != 0)
 	{
 		n /= 10;
-		size++;
+		size += 1;
 	}
 	return (size);
 }
 
 char	*ft_itoa(int n)
 {
-	char			*newstr;
-	unsigned int	length;
-	unsigned int	numbre;
+	char			*str;
+	unsigned int	len;
+	unsigned int	num;
 
-	length = ft_sizeofword(n);
-	newstr = (char *)malloc(sizeof(char) * (length + 1));
-	if (newstr == NULL)
-		return (NULL);
+	len = ft_sizeofword(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (0);
 	if (n < 0)
 	{
-		newstr[0] = '-';
-		numbre = -n;
+		str[0] = '-';
+		num = -n;
 	}
 	else
-		numbre = n;
-	if (numbre == 0)
-		newstr[0] = '0';
-	newstr[length] = '\0';
-	while (numbre > 0)
+		num = n;
+	if (num == 0)
+		str[0] = '0';
+	str[len] = '\0';
+	while (num > 0)
 	{
-		newstr[length - 1] = (numbre % 10) + '0';
-		numbre = numbre / 10;
-		length--;
+		str[len - 1] = (num % 10) + '0';
+		num = num / 10;
+		len--;
 	}
-	return (newstr);
+	return (str);
 }
