@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zero <zero@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:15:23 by zero              #+#    #+#             */
-/*   Updated: 2023/02/11 21:15:26 by zero             ###   ########.fr       */
+/*   Updated: 2023/03/04 13:24:20 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,39 @@
 
 static int	ft_c_inside_set(char c, char const *set)
 {
-	size_t	index;
+	size_t	i;
 
-	index = 0;
-	while (set[index] != '\0')
+	i = 0;
+	while (set[i] != '\0')
 	{
-		if (set[index] == c)
+		if (set[i] == c)
 			return (1);
-		index++;
+		i++;
 	}
 	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
-	size_t	start;
-	size_t	end;
-	size_t	index;
+	size_t	strt;
+	size_t	i;	
+	char	*s;
+	size_t	endz;
 
 	if (s1 == NULL || set == NULL)
 		return (NULL);
-	start = 0;
-	end = ft_strlen(s1);
-	while ((s1[start] != '\0') && (ft_c_inside_set(s1[start], set)))
-		start++;
-	while ((end > start) && (ft_c_inside_set(s1[end - 1], set)))
-		end--;
-	str = (char *)malloc(sizeof(char) * (end - start) + 1);
+	strt = 0;
+	endz = ft_strlen(s1);
+	while ((s1[strt] != '\0') && (ft_c_inside_set(s1[strt], set)))
+		strt++;
+	while ((endz > strt) && (ft_c_inside_set(s1[endz - 1], set)))
+		endz--;
+	str = (char *)malloc(sizeof(char) * (endz - strt) + 1);
 	if (str == NULL)
 		return (NULL);
-	index = 0;
-	while (start < end)
-		str[index++] = s1[start++];
-	str[index] = '\0';
+	i = 0;
+	while (strt < endz)
+		str[i++] = s1[strt++];
+	str[i] = '\0';
 	return (str);
 }

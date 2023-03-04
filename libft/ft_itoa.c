@@ -6,20 +6,22 @@
 /*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 14:39:03 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/03/02 14:58:33 by zabdulza         ###   ########.fr       */
+/*   Updated: 2023/03/04 13:10:47 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static unsigned int	ft_sizeofword(int n)
+#include "libft.h"
+
+static unsigned int	ft_sizeofword(int z)
 {
 	unsigned int	size;
 
 	size = 0;
-	if (n <= 0)
+	if (z <= 0)
 		size ++;
-	while (n != 0)
+	while (z != 0)
 	{
-		n /= 10;
+		z /= 10;
 		size += 1;
 	}
 	return (size);
@@ -27,29 +29,29 @@ static unsigned int	ft_sizeofword(int n)
 
 char	*ft_itoa(int n)
 {
-	char			*str;
-	unsigned int	len;
-	unsigned int	num;
+	unsigned int	length;
+	char			*string;
+	unsigned int	number;
 
-	len = ft_sizeofword(n);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
+	length = ft_sizeofword(n);
+	string = (char *)malloc(sizeof(char) * (length + 1));
+	if (!string)
 		return (0);
 	if (n < 0)
 	{
-		str[0] = '-';
-		num = -n;
+		string[0] = '-';
+		number = -n;
 	}
 	else
-		num = n;
-	if (num == 0)
-		str[0] = '0';
-	str[len] = '\0';
-	while (num > 0)
+		number = n;
+	if (number == 0)
+		string[0] = '0';
+	string[length] = '\0';
+	while (number > 0)
 	{
-		str[len - 1] = (num % 10) + '0';
-		num = num / 10;
-		len--;
+		string[length - 1] = (number % 10) + '0';
+		number = number / 10;
+		length--;
 	}
-	return (str);
+	return (string);
 }

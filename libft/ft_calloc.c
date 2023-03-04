@@ -6,7 +6,7 @@
 /*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 14:46:56 by zabdulza          #+#    #+#             */
-/*   Updated: 2023/02/23 18:10:34 by zabdulza         ###   ########.fr       */
+/*   Updated: 2023/03/04 13:00:53 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	*ft_calloc(size_t array, size_t size)
 		array = 1;
 		msize = 1;
 	}
+	if ((msize) < array || (msize) < size)
+		return (NULL);
 	mem = malloc(msize);
 	if (!mem)
 		return (NULL);
