@@ -6,7 +6,7 @@
 /*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 21:15:23 by zero              #+#    #+#             */
-/*   Updated: 2023/03/04 13:24:20 by zabdulza         ###   ########.fr       */
+/*   Updated: 2023/03/06 12:57:17 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_c_inside_set(char c, char const *set)
 	size_t	i;
 
 	i = 0;
-	while (set[i] != '\0')
+	while (set[i] != 0)
 	{
 		if (set[i] == c)
 			return (1);
@@ -41,12 +41,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 		strt++;
 	while ((endz > strt) && (ft_c_inside_set(s1[endz - 1], set)))
 		endz--;
-	str = (char *)malloc(sizeof(char) * (endz - strt) + 1);
-	if (str == NULL)
+	s = (char *)malloc(sizeof(char) * (endz - strt) + 1);
+	if (s == NULL)
 		return (NULL);
 	i = 0;
 	while (strt < endz)
-		str[i++] = s1[strt++];
-	str[i] = '\0';
-	return (str);
+	{	
+		s[i] = s1[strt];
+		i++;
+		strt++;
+	}
+	s[i] = '\0';
+	return (s);
 }
