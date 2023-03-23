@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hece <hece@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*   By: zabdulza <zabdulza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 01:31:30 by hece              #+#    #+#             */
-/*   Updated: 2022/12/27 01:31:31 by hece             ###   ########.tr       */
+/*   Updated: 2023/03/23 14:20:58 by zabdulza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,10 @@
 # include <unistd.h>
 
 int	ft_printf(const char *str, ...);
+int	ft_putchar(char c);
+int	ft_putstr(char *str);
+int	ft_itoa_base(unsigned long long nbr, int base, char *str, int mod);
+int	handle_pointer(va_list args);
+int	ft_check_format(va_list args, char format);
 
 #endif
